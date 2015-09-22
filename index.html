@@ -13,8 +13,14 @@
         <div class="col-md-12">
           <h4>Search Restaurants</h4>
           <form class="form-inline" role="form">
+            <select ng-model="field" ng-click="query = ''">
+              <option value="name">name</option>
+              <option value="type">cuisine</option>
+              <option value="address">address</option>
+              <option value="price">price</option>
+            </select>
             <div class="form-group">
-              <input ng-model="query" type="text" class="form-control" id="restaurant-detail" placeholder="Search">
+              <input ng-model="query[field]" type="text" class="form-control" id="restaurant-detail" placeholder="Search">
             </div>
           </form>
         </div>
@@ -70,10 +76,10 @@
               <span class="form-group" ng-show="editingPrice"
                 ng-submit="editingPrice = false">
                 <form class="form-inline" role="form">
-                  <label><input type="radio" ng-model="restaurantPrice" class="form-control" value="$">$</label>
-                  <label><input type="radio" ng-model="restaurantPrice" class="form-control" value="$$">$$</label>
-                  <label><input type="radio" ng-model="restaurantPrice" class="form-control" value="$$$">$$$</label>
-                  <label><input type="radio" ng-model="restaurantPrice" class="form-control" value="$$$$">$$$$</label>
+                  <label><input type="radio" ng-model="item.price" class="form-control" value="$">$</label>
+                  <label><input type="radio" ng-model="item.price" class="form-control" value="$$">$$</label>
+                  <label><input type="radio" ng-model="item.price" class="form-control" value="$$$">$$$</label>
+                  <label><input type="radio" ng-model="item.price" class="form-control" value="$$$$">$$$$</label>
                   <button class="btn btn-default btn-sm"
                     type="submit">Save</button>
                 </form>
